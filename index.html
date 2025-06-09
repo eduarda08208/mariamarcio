@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Te Amo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #ffeef2;
+      color: #5a2a2a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 2em;
+    }
+    .contador {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+    .mensagem {
+      max-width: 700px;
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 1.1em;
+    }
+    .fotos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .fotos img {
+      width: 250px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>Feliz Dia dos Namorados</h1>
+  <div class="contador" id="contador"></div>
+  <div class="mensagem">
+    <p>Hoje, mais do que nunca, eu sei: Nosso amor é daqueles que resiste. Que cresce com as cicatrizes, que aprende com os silências e floresce com a coragem de recomeçar.</p>
+    <p>Desejo que a gente nunca se esqueça do quanto vale a pena tentar de novo. Porque com você... tudo vale a pena.</p>
+    <p>Te amo - por tudo o que fomos, pelo que somos, e pelo que ainda vamos ser. Obrigada por me permitir voltar. Obrigada por continuar aqui.</p>
+  </div>
+  <div class="fotos">
+    <img src="https://i.ibb.co/zT2kgGy/T1.jpg" alt="foto1">
+    <img src="https://i.ibb.co/vvPKSwvb/T2.jpg" alt="foto2">
+    <img src="https://i.ibb.co/NgK3Yw1/T3.jpg" alt="foto3">
+    <img src="https://i.ibb.co/yB7N62G/T4.jpg" alt="foto4">
+    <img src="https://i.ibb.co/PskMjDq/T5.jpg" alt="foto5">
+  </div>
+
+  <script>
+    const inicio = new Date('2018-04-22');
+    const contador = document.getElementById('contador');
+
+    function atualizarContador() {
+      const agora = new Date();
+      let diff = agora - inicio;
+
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const anos = Math.floor(dias / 365);
+      const meses = Math.floor((dias % 365) / 30);
+      const diasRestantes = dias - (anos * 365) - (meses * 30);
+
+      contador.textContent = `Estamos juntos há ${anos} anos, ${meses} mês e ${diasRestantes} dias.`;
+    }
+
+    atualizarContador();
+    setInterval(atualizarContador, 86400000);
+  </script>
+</body>
+</html>
