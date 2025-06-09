@@ -2,83 +2,138 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Te Amo</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #ffeef2;
-      color: #5a2a2a;
+      color: #fff;
+      background: url('https://i.postimg.cc/gnZ13XXr/Whats-App-Image-2025-06-05-at-13-21-46.jpg') no-repeat center center fixed;
+      background-size: cover;
+      backdrop-filter: brightness(0.4);
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
       padding: 20px;
     }
     h1 {
-      text-align: center;
       margin-bottom: 10px;
-      font-size: 2em;
+      font-size: 2.5em;
+      text-align: center;
+      text-shadow: 0 0 5px rgba(0,0,0,0.7);
     }
-    .contador {
-      font-size: 1.2em;
+    #contador {
+      font-size: 1.4em;
       margin-bottom: 30px;
+      text-align: center;
+      font-weight: 600;
+      text-shadow: 0 0 4px rgba(0,0,0,0.7);
     }
     .mensagem {
       max-width: 700px;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
       text-align: center;
       margin-bottom: 40px;
-      font-size: 1.1em;
+      font-size: 1.2em;
+      line-height: 1.4;
+      text-shadow: 0 0 4px rgba(0,0,0,0.7);
     }
-    .fotos {
+    .swiper {
+      width: 90%;
+      max-width: 600px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.7);
+    }
+    .swiper-slide {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      align-items: center;
     }
-    .fotos img {
-      width: 250px;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    .swiper-slide img {
+      width: 100%;
+      border-radius: 20px;
+      object-fit: cover;
+      max-height: 400px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
+    }
+    /* Swiper buttons */
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #fff;
+      filter: drop-shadow(0 0 2px rgba(0,0,0,0.7));
     }
   </style>
 </head>
 <body>
   <h1>Feliz Dia dos Namorados</h1>
-  <div class="contador" id="contador"></div>
+  <div id="contador">Carregando tempo...</div>
+
   <div class="mensagem">
-    <p>Hoje, mais do que nunca, eu sei: Nosso amor é daqueles que resiste. Que cresce com as cicatrizes, que aprende com os silências e floresce com a coragem de recomeçar.</p>
+    <p>Hoje, mais do que nunca, eu sei: Nosso amor é daqueles que resiste. Que cresce com as cicatrizes, que aprende com os silêncios e floresce com a coragem de recomeçar.</p>
     <p>Desejo que a gente nunca se esqueça do quanto vale a pena tentar de novo. Porque com você... tudo vale a pena.</p>
     <p>Te amo - por tudo o que fomos, pelo que somos, e pelo que ainda vamos ser. Obrigada por me permitir voltar. Obrigada por continuar aqui.</p>
   </div>
-  <div class="fotos">
-    <img src="https://i.ibb.co/zT2kgGy/T1.jpg" alt="foto1">
-    <img src="https://i.ibb.co/vvPKSwvb/T2.jpg" alt="foto2">
-    <img src="https://i.ibb.co/NgK3Yw1/T3.jpg" alt="foto3">
-    <img src="https://i.ibb.co/yB7N62G/T4.jpg" alt="foto4">
-    <img src="https://i.ibb.co/PskMjDq/T5.jpg" alt="foto5">
+
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="https://i.postimg.cc/gnZ13XXr/Whats-App-Image-2025-06-05-at-13-21-46.jpg" alt="foto1"></div>
+      <div class="swiper-slide"><img src="https://i.postimg.cc/PCn9yXYy/Whats-App-Image-2025-06-05-at-13-21-46-1.jpg" alt="foto2"></div>
+      <div class="swiper-slide"><img src="https://i.postimg.cc/NypnQRVC/Whats-App-Image-2025-06-05-at-13-21-47.jpg" alt="foto3"></div>
+      <div class="swiper-slide"><img src="https://i.postimg.cc/B8qyWmh1/Whats-App-Image-2025-06-05-at-13-21-47-1.jpg" alt="foto4"></div>
+      <div class="swiper-slide"><img src="https://i.postimg.cc/ThhzYHTV/Whats-App-Image-2025-06-05-at-13-21-48.jpg" alt="foto5"></div>
+    </div>
+    <!-- Add navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script>
-    const inicio = new Date('2018-04-22');
-    const contador = document.getElementById('contador');
+    // Inicializa o Swiper com botões de navegação
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
 
+    // Função para calcular e formatar o tempo juntos
     function atualizarContador() {
+      const inicio = new Date('2018-04-22T00:00:00');
       const agora = new Date();
-      let diff = agora - inicio;
 
-      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const anos = Math.floor(dias / 365);
-      const meses = Math.floor((dias % 365) / 30);
-      const diasRestantes = dias - (anos * 365) - (meses * 30);
+      let totalSegundos = Math.floor((agora - inicio) / 1000);
 
-      contador.textContent = `Estamos juntos há ${anos} anos, ${meses} mês e ${diasRestantes} dias.`;
+      const anos = Math.floor(totalSegundos / (365 * 24 * 3600));
+      totalSegundos -= anos * 365 * 24 * 3600;
+
+      const meses = Math.floor(totalSegundos / (30 * 24 * 3600));
+      totalSegundos -= meses * 30 * 24 * 3600;
+
+      const dias = Math.floor(totalSegundos / (24 * 3600));
+      totalSegundos -= dias * 24 * 3600;
+
+      const horas = Math.floor(totalSegundos / 3600);
+      totalSegundos -= horas * 3600;
+
+      const minutos = Math.floor(totalSegundos / 60);
+      totalSegundos -= minutos * 60;
+
+      const segundos = totalSegundos;
+
+      const texto = `Te amo há ${anos} anos, ${meses} mês, ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos.`;
+      document.getElementById('contador').textContent = texto;
     }
 
     atualizarContador();
-    setInterval(atualizarContador, 86400000);
+    setInterval(atualizarContador, 1000);
   </script>
 </body>
 </html>
